@@ -67,17 +67,20 @@ class ObjectDetection:
         self.size_y = 1920
         self.size_x = 1080
 
+        self.frame_inference_width = 1520
+        self.frame_inference_height = 1080
+
         self.logo_position_x = 0.2
         self.logo_position_y = 0.1
 
         self.compright_position_y = 0.86
         self.compright_position_x = 0.23
 
-        self.button_position_x = 0.36
-        self.button_position_y = 0.55
-        self.button_width = 13
+        self.button_position_x = 0.31
+        self.button_position_y = 0.60
+        self.button_width = 25
 
-        self.metter_position_x = 0.25
+        self.metter_position_x = 0.15
         self.metter_position_y = 0.4
 
     def predict(self, im0):
@@ -110,7 +113,7 @@ class ObjectDetection:
         clss = results[0].boxes.cls.cpu().tolist()
         names = results[0].names
         for box, cls in zip(boxes, clss):
-            if cls in [5, 0]:
+            if cls in [1, 0]:
                 class_ids.append(cls)
                 self.annotator.box_label(
                     box, label=names[int(cls)], color=colors(int(cls), True)
@@ -122,14 +125,14 @@ class ObjectDetection:
         root.title("Sentinela")
         root.iconbitmap(self.ico_path)
         root.bind("<Escape>", lambda e: root.quit())
-        # root.attributes("-fullscreen", True)
-        root.geometry(f"{self.size_y}x{self.size_x}")
+        root.attributes("-fullscreen", True)
+        # root.geometry(f"{self.size_y}x{self.size_x}")
 
         def start():
             """Run object detection on video frames from a camera stream, plotting and showing the results."""
-            cap = cv2.VideoCapture(self.capture_index)
+            # cap = cv2.VideoCapture(self.capture_index)
             # resolve problem the webcam logitech bellow
-            # cap = cv2.VideoCapture(self.capture_index, cv2.CAP_DSHOW)
+            cap = cv2.VideoCapture(self.capture_index, cv2.CAP_DSHOW)
             assert cap.isOpened()
             cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
             cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
@@ -179,7 +182,7 @@ class ObjectDetection:
             # init Frame inference
             frame_inference = tb.Frame(root)
             frame_inference.place(
-                relx=0.6, rely=0.5, width=1020, height=1080, anchor=tk.CENTER
+                relx=0.6, rely=0.5, width=self.frame_inference_width, height=self.frame_inference_height, anchor=tk.CENTER
             )
             lmain = tb.Label(frame_inference)
             lmain.place(x=5, y=5, width=1510, height=1070)
@@ -192,7 +195,8 @@ class ObjectDetection:
                 results = self.predict(im0)
                 im0, class_ids = self.plot_bboxes(results, im0)
 
-                if (5 in class_ids) and (0 in class_ids):
+                if (1 in class_ids) and (0 not in class_ids):
+                # if (1 in class_ids):
                     if not self.sond_send:
                         send_sound(len(class_ids))
                         self.sond_send = True
@@ -266,5 +270,5 @@ class ObjectDetection:
 
 
 if __name__ == "__main__":
-    detector = ObjectDetection(capture_index=0)
+    detector = ObjectDetection(capture_index=1)
     detector()

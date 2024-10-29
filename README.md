@@ -32,15 +32,16 @@
 ## About
 
 
-🌌 Computer vision system - It is a system for detecting people and safety helmets in real time, triggering alarms.
+🌌 Computer vision system - It is a system for detecting people and glasses in real time, triggering alarms.
 
 
 ---
 
 ## Features
 
-- [x] real-time safety helmet detection
-- [x] alarm activation when a person wearing a helmet is detected
+- [x] real-time glasses detection
+- [x] real-time person detection
+- [x] alarm activation when a person is not wearing glasses
 
 
 
@@ -104,7 +105,40 @@ $ python main.py
 
 ```
 
+### Create executable Windows
 
+Before you begin, you will need to have the following tools installed on your machine:
+[PyInstaller](https://pyinstaller.org/en/latest/index.html).
+
+
+####
+
+```bash
+
+# Clone this repository
+$ https://github.com/radixeng/computer-vision-system.git
+
+# Access the project folder cmd/terminal
+$ cd computer-vision-system
+
+# create python virtual environment
+$ python -m venv .venv
+
+#activate python environment on windows
+$ .venv\Script\activate.bat
+
+# install the dependencies
+$ pip install -r requirements.txt
+
+# script that creates executable in a single file
+$ python3 .\generate_executable.py
+
+# copy the contents of the example.spec file to main.spec
+
+# creates the executable with dependencies
+$ python3 .\generate_run_spec.py
+
+```
 
 ---
 
@@ -113,12 +147,13 @@ $ python main.py
 The following tools were used in the construction of the project:
 
 - **[Conda](https://conda.io/projects/conda/en/latest/index.html)**
-- **[Yolo V9](https://docs.ultralytics.com/models/yolov9/)**
+- **[Yolo V11](https://docs.ultralytics.com/models/yolov11/)**
 - **[Python 3.11.9](https://www.python.org/downloads/release/python-3119/)**
 - **[tkinter](https://docs.python.org/pt-br/3/library/tkinter.html)**
 - **[ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/)**
 - **[OpenCV](https://docs.opencv.org/master/index.html)**
 - **[Pygame](https://pypi.org/project/pygame/)**
+- **[PyInstaller](https://pyinstaller.org/en/latest/index.html)**
 
 > See the file [env.yml](https://github.com/radixeng/ROG-2024/blob/master/package.json)
 

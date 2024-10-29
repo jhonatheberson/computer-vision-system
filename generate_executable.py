@@ -9,5 +9,5 @@ PyInstaller.__main__.run([
     '--collect-data=ultralytics',
     '--collect-data=pygame',
     '--collect-data=best.pt',
-    '--name=run'
+    '--name=main'
 ])

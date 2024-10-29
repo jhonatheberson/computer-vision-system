@@ -24,7 +24,10 @@ datas += collect_data_files('tkinter')
 datas += collect_data_files('ttkbootstrap')
 datas +=  [('best.pt', '.')]
 datas +=  [('alert.mp3', '.')]
-datas +=  [('logo_crop.png', '.')]
+datas +=  [('icon-48x48.bmp', '.')]
+datas +=  [('icon-48x48.icon', '.')]
+datas +=  [('logo-48x48.ico', '.')]
+datas +=  [('logo-final-com-nome-250x250.png', '.')]
 
 
 block_cipher = None
