@@ -46,13 +46,13 @@
 
 
 
-## Layout
+## Model training
 
-<!-- The application layout is available on Figma: -->
+The model was trained using the kaggle platform:
 
-<!-- <a href="https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta?node-id=136%3A546">
-  <img alt="Made by jhonatheberson" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
-</a> -->
+<a href="https://www.kaggle.com/code/jhonatheberson/train-yolo-v11-with-finetuning">
+  <img alt="Development by jhonatheberson" src="https://img.shields.io/badge/Acessar%20Notebook%20-Kaggle-%2304D361">
+</a>
 
 ### Application
 
@@ -68,7 +68,7 @@
 
 ### Download the windows executable here:
 
-[Windows.exe](https://radixengazure-my.sharepoint.com/:u:/g/personal/jhonat_souza_radixeng_com_br/EesGnTVWmX1On407XxSBkFABNwhqGhbKKm6gifUHxSBv4g?e=qzYdHL)
+[Windows.exe](https://drive.google.com/file/d/1tx8H0NOFCiGoAWAB8kQSACvHHMkkeytP/view?usp=sharing)
 
 
 
